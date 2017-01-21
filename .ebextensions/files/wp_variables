@@ -1,0 +1,46 @@
+############################################################
+# Description: Set Environment Variables for WP 
+# Author: Patrick Hynes
+# Date: 21.01.17
+############################################################
+
+SetEnv DB_NAME gwa_content_hub_
+SetEnv DB_USER gwa_content_hub
+SetEnv DB_PASSWORD
+SetEnv DB_HOST RDS_ENDPOINT
+
+SetEnv WP_ENV development
+SetEnv WP_HOME WEBSITE_URL
+SetEnv WP_SITEURL SITE_URL
+
+SetEnv EMPTY_TRASH_DAYS 7
+SetEnv WP_POST_REVISIONS 2
+SetEnv WP_AUTO_UPDATE false
+
+SetEnv WP_THEME zero
+
+SetEnv WP_MULTISITE false
+# SetEnv WP_INSTALL_PATH
+SetEnv WP_MULTISITE_SUBDOMAIN_INSTALL false
+# SetEnv WP_MULTISITE_DOMAIN_CURRENT_SITE
+# SetEnv WP_MULTISITE_PATH_CURRENT_SITE
+
+SetEnv AUTH_KEY '/*HD/LTZQ#h4T&2#DC HC53K7j^T  &)0jjXV3j?Bq2-,rTxTB4 =tsZD.fl& +C'
+SetEnv SECURE_AUTH_KEY '=b}N4:L+m|#fqrD!T,SLn@/Q5d2H{U!*VXrmT2e52*@).bPO..{i5[Zw}o4#8BQq'
+SetEnv LOGGED_IN_KEY ']7CDwH;{k74f8gT3aF@6pw~bKT%f-qv5]Y.g+~+cXWhr20-3=Rwh%ljk5[qM|Ld]'
+SetEnv NONCE_KEY ':?`<> ~LE/2,YIWQ}(X0`6@VQ<,Qz:Av;qj[||uD: wUr):dXU4OnB;3p>gO{G!-'
+SetEnv AUTH_SALT 'W)3W(]{%6iv[<s<L$R{})-Q.9WJV>fCL{=,4&)FI<0s^(fmSX?EC(_xOE7;t$y5Y'
+SetEnv SECURE_AUTH_SALT 'qZo=ETBsgT,{ZgDje7M[P9x)Ct?bR407p%0Tu<#AH5l,@Oc&iOZYk DMcCOT,ani'
+SetEnv LOGGED_IN_SALT '^$2:1Ax;=J>4]+G=G+QQ%-~&jEwcFJlhj$d@|B6=!VWUM>M)-~vU!lx-PT[-~;<|'
+SetEnv NONCE_SALT '8+!8sD0>{iIy/_d*@yyIJVp{b|6`.T~3L0x3`]S&,<a`9d8HC=&#O+XP+pG{9wPg'
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
